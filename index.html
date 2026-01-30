@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sevgililer Günümüz 💖</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      color: #3a1c2e;
+      background: url('heart-bg.png') center/cover no-repeat fixed;
+      overflow-x: hidden;
+    }
+
+    .overlay {
+      background: rgba(255, 240, 245, 0.85);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 750px;
+      text-align: center;
+      animation: fadeIn 2s ease;
+    }
+
+    h1 {
+      font-size: 3.2rem;
+      margin-bottom: 10px;
+      text-shadow: 0 0 15px rgba(255, 182, 193, 0.9);
+    }
+
+    h2 {
+      font-weight: normal;
+      margin-bottom: 35px;
+      opacity: 0.9;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.75);
+      border-radius: 25px;
+      padding: 40px;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.2);
+      position: relative;
+    }
+
+    .card::before {
+      content: '✨';
+      position: absolute;
+      top: -15px;
+      right: 25px;
+      font-size: 2rem;
+      animation: sparkle 2s infinite;
+    }
+
+    p {
+      font-size: 1.15rem;
+      line-height: 1.9;
+      margin-bottom: 20px;
+    }
+
+    .heart {
+      font-size: 3rem;
+      animation: pulse 1.4s infinite;
+      margin: 25px 0;
+      text-shadow: 0 0 20px rgba(255,105,180,0.8);
+    }
+
+    .gallery {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      margin-top: 30px;
+      flex-wrap: wrap;
+    }
+
+    .img-box {
+      width: 150px;
+      height: 150px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, #ffd1dc, #ffe6f0);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.2rem;
+    }
+
+    footer {
+      margin-top: 40px;
+      font-size: 0.9rem;
+      opacity: 0.75;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.18); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes sparkle {
+      0% { opacity: 0.4; transform: rotate(0deg); }
+      50% { opacity: 1; transform: rotate(20deg); }
+      100% { opacity: 0.4; transform: rotate(0deg); }
+    }
+  .overlay-heart{position:fixed;inset:0;background:rgba(255,240,245,0.9);display:flex;align-items:center;justify-content:center;z-index:9999}
+.hidden{display:none}
+.big-heart{width:320px;height:320px;background:white;border-radius:50%;display:flex;align-items:center;justify-content:center;text-align:center;box-shadow:0 0 40px rgba(255,105,180,0.6);position:relative;z-index:2}
+.heart-text{font-size:1.1rem;color:#b03060;line-height:1.6;padding:20px}
+.moving-hearts{position:absolute;inset:0;overflow:hidden;z-index:1}
+.move-heart{position:absolute;font-size:1.4rem;animation:floatAround linear infinite;filter:drop-shadow(0 0 6px red)}
+@keyframes floatAround{0%{transform:translateY(0) translateX(0);opacity:.6}50%{transform:translateY(-80px) translateX(60px);opacity:1}100%{transform:translateY(-160px) translateX(-40px);opacity:.6}}
+.close-heart{position:absolute;top:12px;right:16px;font-size:1.2rem;cursor:pointer;color:#b03060;opacity:.7}
+.close-heart:hover{opacity:1}
+</style>
+</head>
+<body>
+  <audio autoplay loop playsinline id="bg-music">
+  <source src="river-flows-in-you.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  const music = document.getElementById('bg-music');
+  music.volume = 0.4;
+
+  document.addEventListener('click', () => {
+    if (music.paused) {
+      music.play();
+    }
+  });
+</script>
+
+<div class="overlay">
+    <div class="container">
+      <h1>Sevgililer Günümüz 💖</h1>
+      <h2>Kalbimin en güzel yerine düşen gün</h2>
+
+      <div class="card">
+        <p>
+          Seni tanıdığım günden beri kalbim başka atıyor.
+          Bu Sevgililer Günü’nde şunu biliyorum:
+          seni tanımak, hayatımın en güzel şansı.
+          İyi ki yollarımız kesişmiş.
+        </p>
+
+        <div class="heart">💗</div>
+
+        <p>
+          Bugün takvimde bir gün değil sadece.
+          Bugün, seni sevmenin özel bir bahanesi.
+          Kalbimde sessizce büyüyen bir sevgi var.
+        </p>
+
+        <p>
+          Nice günlere,
+          gülüşüne tanık olduğum her ana…
+          seninle.
+        </p>
+
+        <div class="gallery">
+          <div class="img-box">💞</div>
+          <div class="img-box">✨</div>
+          <div class="img-box">🌸</div>
+        </div>
+      </div>
+
+      <footer>
+        Bu site, Sevgililer Günümüzde kalbimden sana küçük bir hediye 💖
+      </footer>
+
+      <div class="surprise">
+        <div class="arrows">⬇️ ⬇️ ⬇️</div>
+        <div id="cat" class="cat">😻</div>
+        <div class="hint">emojiye tıkla</div>
+      </div>
+
+    </div>
+  </div>
+
+  <div id="overlay-heart" class="overlay-heart hidden">
+    <div class="moving-hearts"></div>
+    <div class="big-heart">
+      <div class="close-heart" id="close-heart">✖</div>
+      <span class="heart-text">Sevgililer Günümüz kutlu olsun<br>seni çook seviyoruum</span>
+    </div>
+  </div>
+
+  <script>
+    const cat = document.getElementById('cat');
+    const overlay = document.getElementById('overlay-heart');
+
+    cat.addEventListener('click', () => {
+      overlay.classList.remove('hidden');
+      startHearts();
+    });
+
+        const closeBtn = document.getElementById('close-heart');
+    closeBtn.addEventListener('click', () => {
+      overlay.classList.add('hidden');
+    });
+
+    function startHearts() {
+      const container = document.querySelector('.moving-hearts');
+      container.innerHTML = '';
+      for (let i = 0; i < 40; i++) {
+        const heart = document.createElement('div');
+        heart.className = 'move-heart';
+        heart.innerText = '❤️';
+        heart.style.top = Math.random() * 100 + 'vh';
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.animationDuration = 6 + Math.random() * 6 + 's';
+        container.appendChild(heart);
+      }
+    }
+  </script>
+</body>
+</html>

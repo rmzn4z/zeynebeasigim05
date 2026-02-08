@@ -119,6 +119,11 @@
 .moving-hearts{position:absolute;inset:0;overflow:hidden;z-index:1}
 .move-heart{position:absolute;font-size:1.4rem;animation:floatAround linear infinite;filter:drop-shadow(0 0 6px red)}
 @keyframes floatAround{0%{transform:translateY(0) translateX(0);opacity:.6}50%{transform:translateY(-80px) translateX(60px);opacity:1}100%{transform:translateY(-160px) translateX(-40px);opacity:.6}}
+
+@keyframes fadeInFinal{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:translateY(0)}
+}50%{transform:translateY(-80px) translateX(60px);opacity:1}100%{transform:translateY(-160px) translateX(-40px);opacity:.6}}
 .close-heart{position:absolute;top:12px;right:16px;font-size:1.2rem;cursor:pointer;color:#b03060;opacity:.7}
 .close-heart:hover{opacity:1}
 
@@ -237,6 +242,11 @@ document.addEventListener('click', () => {
     <div class="big-heart">
       <div class="close-heart" id="close-heart">✖</div>
       <span class="heart-text">Sevgililer Günümüz kutlu olsun<br>seni çook seviyoruum</span>
+      <div id="final-message" style="display:none;margin-top:20px;font-size:1rem;color:#b03060;animation:fadeInFinal 2s ease forwards;">
+        Hayatımda iyi ki dediğim en güzel şey sensin.<br>
+        Bu ekran kapanacak belki… ama sana olan sevgim hiç kapanmayacak.<br>
+        <strong>İyi ki sen.</strong>
+      </div>
     </div>
   </div>
 
@@ -247,6 +257,12 @@ document.addEventListener('click', () => {
     cat.addEventListener('click', () => {
       overlay.classList.remove('hidden');
       startHearts();
+
+      const finalMsg = document.getElementById('final-message');
+      finalMsg.style.display = 'none';
+      setTimeout(()=>{
+        finalMsg.style.display = 'block';
+      },3000);
     });
 
         const closeBtn = document.getElementById('close-heart');

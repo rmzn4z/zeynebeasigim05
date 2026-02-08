@@ -163,13 +163,14 @@
 
 <script>
   const music = document.getElementById('bg-music');
-  music.volume = 0.4;
+music.volume = 0.4;
 
-  document.addEventListener('click', () => {
-    if (music.paused) {
-      music.play();
-    }
-  });
+// Telefonlar için ilk etkileşimde başlatma
+document.addEventListener('click', () => {
+  if (music.paused) {
+    music.play().catch(()=>{});
+  }
+}, { once: true });
 </script>
 
 <div class="overlay">
@@ -290,14 +291,21 @@ ve hâlâ artıyor… ✨`;
     const toggle = document.getElementById('toggle-night');
 
     const musicBtn = document.getElementById('music-toggle');
-    musicBtn.addEventListener('click',()=>{
-      if(music.paused){music.play();musicBtn.innerText='🔊'}
-      else{music.pause();musicBtn.innerText='🔇'}
-    });
 
-    const secret=document.getElementById('secret');
-    const secretMsg=document.getElementById('secret-message');
-    secret.addEventListener('click',()=>{
+musicBtn.addEventListener('click', () => {
+  if (music.paused) {
+    music.play().then(()=>{
+      musicBtn.innerText = '🔊';
+    }).catch(()=>{});
+  } else {
+    music.pause();
+    musicBtn.innerText = '🔇';
+  }
+});
+
+const secret=document.getElementById('secret');
+const secretMsg=document.getElementById('secret-message');
+secret.addEventListener('click',()=>{
       secretMsg.style.display=secretMsg.style.display==='block'?'none':'block';
     });
     toggle.addEventListener('click',()=>{
